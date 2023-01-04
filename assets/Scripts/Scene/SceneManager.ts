@@ -17,10 +17,6 @@ export abstract class SceneManager extends RenderManager {
     packagePrefab: Prefab
 
     onLoad() {
-        for (const scene in SceneEnum) {
-            director.preloadScene(scene)
-        }
-
         if (this.menu) {
             const menu = instantiate(this.menu)
             menu.setParent(this.node)
@@ -44,7 +40,7 @@ export abstract class SceneManager extends RenderManager {
     }
 
     handleMenuClick() {
-        this.changeScene(SceneEnum.Menu)
+        director.loadScene(SceneEnum.Menu)
     }
 
     render() {}

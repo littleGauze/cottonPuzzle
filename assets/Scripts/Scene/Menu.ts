@@ -1,12 +1,17 @@
-import { _decorator, Component, Node } from 'cc';
+import { _decorator, Component, Node, director } from 'cc';
 import { SceneEnum } from '../Common/Enum';
 import { DataManager } from '../Runtime/DataManager';
-import { SceneManager } from './SceneManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('Menu')
-export class Menu extends SceneManager {
+export class Menu extends Component {
     type = SceneEnum.Menu
+
+    onLoad() {
+        for (const scene in SceneEnum) {
+            director.preloadScene(scene)
+        }
+    }
 
     newGame() {
         DataManager.Instance.newGame()

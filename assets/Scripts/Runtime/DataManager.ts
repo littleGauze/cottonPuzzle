@@ -72,6 +72,7 @@ export class DataManager extends Singleton {
 
         // 加载场景
         director.loadScene(scene)
+        this.render()
     }
 
     get items() {

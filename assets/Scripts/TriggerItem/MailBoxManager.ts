@@ -23,9 +23,9 @@ export default class MailBoxManager extends TriggerItem {
     const ins = DataManager.Instance
     const triggerItems = ins.triggerItems.slice()
     const items = ins.items.slice()
-    const currItem = items.find(it => it.type === ins.currItem.type)
+    const currItem = items.find(it => it.type === ins.currItem?.type)
     const mailbox = triggerItems.find(it => it.type === this.type)
-    if (mailbox && mailbox.state === TriggerItemStateEnum.Pending && ins.isSelected && ins.currItem.type === ItemTypeEnum.Key) {
+    if (mailbox && mailbox.state === TriggerItemStateEnum.Pending && ins.isSelected && ins.currItem?.type === ItemTypeEnum.Key) {
       mailbox.state = TriggerItemStateEnum.Triggered
       ins.triggerItems = triggerItems
       ins.isSelected = false
